@@ -13,6 +13,21 @@ addToCartButtons.forEach(btn => {
   btn.addEventListener('click', addToCart);
 })
 
+document.querySelector('.btn-purchase').addEventListener('click', purchaseBtn);
+
+function purchaseBtn() {
+  const cartItems = document.querySelector('.cart-items');
+  let hasChild = cartItems.hasChildNodes();
+  while(cartItems.hasChildNodes()) {
+    cartItems.removeChild(cartItems.firstChild);
+  }
+  hasChild = false;
+  if(hasChild) {
+    alert('Thank you for shopping');
+  }
+  updateCartTotal();
+}
+
 function quantityChanged(e) {
   const input = e.target;
     if(isNaN(input.value) || input.value <= 0) {
